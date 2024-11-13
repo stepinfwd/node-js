@@ -16,3 +16,14 @@
 
 // Start the server and listen on the specified port
 // - Log a message to confirm the server is running and provide the URL
+
+
+
+// create basic server using node js
+
+const http = require('http')
+const server = http.createServer(function (req, res) {
+    res.end('<h1> Starting node js</h1>')
+})
+
+server.listen(8082)
