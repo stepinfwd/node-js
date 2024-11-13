@@ -23,7 +23,33 @@
 
 const http = require('http')
 const server = http.createServer(function (req, res) {
-    res.end('<h1> Starting node js</h1>')
+    console.log("req---", req.url);
+    if (req.url == '/') {
+        res.writeHead(200, { 'Content-Type': 'text/html' });
+        res.end('<h1> Starting node js</h1>')
+    }
+    else if (req.url === '/time') {
+        res.writeHead(200, { 'Content-Type': 'text/html' });
+        res.end('<h1>' + new Date().toLocaleString() + '</h1>')
+    }
+    else {
+        res.writeHead(404, { 'Content-type': 'text/html' })
+        res.end(`<h1>NOT FOUND</h1>`)
+    }
 })
 
-server.listen(8082)
+server.listen(8082, () => {
+    console.log('server started with node js')
+})
+
+
+// create basic server using express js
+
+// const express = require('express')
+
+// const app = express((req, res) => {
+//     res.send(`<h1>Starting with express js</h1>`)
+// })
+// app.listen(8082,, () => {
+//     console.log('server started with express js')
+// })
