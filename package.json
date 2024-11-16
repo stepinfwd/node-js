@@ -1,20 +1,18 @@
 {
-  "name": "node-js-max",
+  "name": "test project",
   "version": "1.0.0",
+  "description": "",
   "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
     "start": "nodemon app.js"
   },
-  "author": "",
-  "license": "ISC",
-  "description": "",
+  "keywords": [],
+  "author": "Kiran",
+  "license": "MIT",
   "dependencies": {
-    "body-parser": "^1.20.3",
-    "express": "^4.21.1"
+    "express": "^4.17.1"
   },
   "devDependencies": {
-    "@types/node": "^22.9.0",
-    "nodemon": "^3.1.7"
+    "nodemon": "^2.0.7"
   }
 }
