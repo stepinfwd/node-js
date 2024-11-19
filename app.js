@@ -12,6 +12,8 @@ app.set("view engine", "ejs");
 app.set('views', path.join(__dirname, 'views'));
 
 app.use(express.static('public'));
+app.use(express.urlencoded({ extended: true }));
+
 
 app.get('/', (req, res) => {
     res.render('index', { title: 'Hey', message: 'Hello there!' })
@@ -30,8 +32,24 @@ app.get('/recommend', (req, res) => {
 })
 
 app.get('/restaurants', (req, res) => {
-    res.render('restaurants', { title: 'Hey', message: 'Hello there!' })
+    // const restaurants = req.body
+    const filePath = path.join(__dirname, 'data', 'restaurants.json')
+    const data = JSON.parse(fs.readFileSync(filePath))
+    res.render('restaurants', { restaurants: data, numberOfRestaurants: data.length })
 })
+
+app.post('/recommend', (req, res) => {
+    console.log("called-----", req.body);
+    const restaurants = req.body
+    const filePath = path.join(__dirname, 'data', 'restaurants.json')
+    const data = JSON.parse(fs.readFileSync(filePath))
+    data.push(restaurants)
+    console.log("Data---", data);
+
+    fs.writeFileSync(filePath, JSON.stringify(data))
+    res.redirect('confirm')
+})
+
 app.listen(port, () => {
     console.log(`listening on port ${port}`);
 })
