@@ -1,16 +1,1 @@
-[
-    {
-        "name": "work here manuskh",
-        "address": "as",
-        "cuisine": "asd",
-        "website": "https://www.youtube.com/watch?v=QGXUUXy0AMw",
-        "description": "dasd"
-    },
-    {
-        "name": "sathat",
-        "address": "calicut",
-        "cuisine": "italian",
-        "website": "https://www.youtube.com/watch?v=QGXUUXy0AMw",
-        "description": "yes 100%"
-    }
-]
+[{"name":"work here manuskh","address":"as","cuisine":"asd","website":"https://www.youtube.com/watch?v=QGXUUXy0AMw","description":"dasd"},{"name":"sathat","address":"calicut","cuisine":"italian","website":"https://www.youtube.com/watch?v=QGXUUXy0AMw","description":"yes 100%"},{"name":"arpit","address":"calicut","cuisine":"italian","website":"https://www.youtube.com/watch?v=QGXUUXy0AMw","description":"yes"}]
