@@ -7,7 +7,6 @@ const ejs = require('ejs')
 const port = 8082
 const app = express()
 
-console.log("__dirname---", __dirname);
 app.set("view engine", "ejs");
 app.set('views', path.join(__dirname, 'views'));
 
@@ -31,6 +30,12 @@ app.get('/recommend', (req, res) => {
     res.render('recommend', { title: 'Hey', message: 'Hello there!' })
 })
 
+app.get('/restaurants/:id', (req, res) => {
+    const id = req.params.id
+    console.log("id---", id);
+    res.render('restaurant-details', { restaurantId: id, message: 'Hello there!' })
+})
+
 app.get('/restaurants', (req, res) => {
     // const restaurants = req.body
     const filePath = path.join(__dirname, 'data', 'restaurants.json')
@@ -39,13 +44,10 @@ app.get('/restaurants', (req, res) => {
 })
 
 app.post('/recommend', (req, res) => {
-    console.log("called-----", req.body);
     const restaurants = req.body
     const filePath = path.join(__dirname, 'data', 'restaurants.json')
     const data = JSON.parse(fs.readFileSync(filePath))
     data.push(restaurants)
-    console.log("Data---", data);
-
     fs.writeFileSync(filePath, JSON.stringify(data))
     res.redirect('confirm')
 })
