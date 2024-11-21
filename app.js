@@ -16,19 +16,19 @@ app.use(express.urlencoded({ extended: true }));
 
 
 app.get('/', (req, res) => {
-    res.render('index', { title: 'Hey', message: 'Hello there!' })
+    res.render('index')
 })
 
 app.get('/about', (req, res) => {
-    res.render('about', { title: 'Hey', message: 'Hello there!' })
+    res.render('about')
 })
 
 app.get('/confirm', (req, res) => {
-    res.render('confirm', { title: 'Hey', message: 'Hello there!' })
+    res.render('confirm')
 })
 
 app.get('/recommend', (req, res) => {
-    res.render('recommend', { title: 'Hey', message: 'Hello there!' })
+    res.render('recommend')
 })
 
 app.get('/restaurants/:id', (req, res) => {
@@ -37,14 +37,10 @@ app.get('/restaurants/:id', (req, res) => {
     const restaurants = JSON.parse(fs.readFileSync(filePath))
 
     for (restaurant of restaurants) {
-        console.log("restaurant---", restaurant.id, id);
         if (restaurant.id == id)
             return res.render('restaurant-details', { restaurantId: id, restaurant: restaurant })
     }
-    res.status(404).render('404', { title: '404 - Page Not Found' });
-
-
-    console.log("id---", id);
+    res.status(404).render('404');
 })
 
 app.get('/restaurants', (req, res) => {
@@ -66,7 +62,7 @@ app.post('/recommend', (req, res) => {
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
-    res.status(404).render('404', { title: '404 - Page Not Found' });
+    res.status(404).render('404');
 });
 
 // error handler
