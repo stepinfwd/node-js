@@ -1,15 +1,64 @@
 <html lang="en">
     <head>
         <%- include('./includes/head.ejs') %>
+        <style>
+            body {
+                font - family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+            color: #333;
+        }
+            main {
+                max - width: 800px;
+            margin: 50px auto;
+            padding: 20px;
+            background: #fff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            text-align: center;
+        }
+            h1 {
+                color: #007bff;
+            font-size: 2rem;
+            margin: 10px 0;
+        }
+            p {
+                font - size: 1.1rem;
+            color: #555;
+            margin: 10px 0;
+        }
+            button {
+                margin - top: 20px;
+            padding: 10px 20px;
+            font-size: 1rem;
+            color: #fff;
+            background-color: #007bff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+            button:hover {
+                background - color: #0056b3;
+        }
+            a {
+                text - decoration: none;
+            color: inherit;
+        }
+        </style>
     </head>
     <body>
         <%- include('./includes/header.ejs') %>
         <%- include('./includes/side-drawer.ejs') %>
         <main>
-            <h1>Title for <%= restaurantId %></h1>
-            <p>Cuisine</p>
-            <p>Description</p>
-            <button>View website</button>
+            <h1><%= restaurant.name %></h1>
+            <h2><%= restaurant.address %></h2>
+            <p><strong>Cuisine:</strong> <%= restaurant.cuisine %></p>
+            <p><%= restaurant.description %></p>
+            <button>
+                <a href="<%= restaurant.website %>" target="_blank">Visit Website</a>
+            </button>
         </main>
     </body>
-</html >
+</html>
